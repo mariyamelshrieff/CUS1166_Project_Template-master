@@ -8,30 +8,14 @@
                 <div class="card px-3">
                     <div class="card-body">
                         <h4 class="card-title">My Job - Appointment List</h4>
-                        <form method="POST" action="{{url_for('main.appointment')}}" >
-
-                                {{ form.hidden_tag() }}
-
-                                <div class="add-items d-flex" class="container-fluid">
-
-
+                        <form method="POST" action="{{url_for('main.edit_appointment',appointment_id=appointment_id)}}" >
+                            <div class="add-items d-flex">
                                 <!-- csrf_token is required to validate the form -->
                                 {{ form.csrf_token }}
-                                    <!--date picker -->
-                                {{form.appointment_customer_name (class_='form-control todo-list-input', placeholder='Whats your name?')}}
-                                 {{ form.appointment_date(class='input-group date', placeholder ='Date MM/DD/YYYY')}}
+                                {{ form.appointment_desc(class_='form-control new-appointment-input', placeholder='Type in the upcoming job appointment')}}
                                 {{ form.appointment_status_completed }}
-                                {{ form.appointment_location(class='form-control todo-list-input' ,placeholder='Whats your address?') }}
-                                    {{ form.appointment_desc(class='form-control todo-list-input', placeholder='Notes')}}
-
-
-
-
-
-                                <button class="add btn btn-primary font-weight-bold todo-list-add-btn" class="text-center" >Add </button>
-
-
-                        </div>
+                                <button class="add btn btn-primary font-weight-bold new-appointment-add-btn">Add</button>
+                       </div>
                      </form>
                    </div>
                 </div>
