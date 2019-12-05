@@ -1,0 +1,86 @@
+{% extends "menu.html" %}
+
+{% block main_content %}
+
+<div class="page-content page-container" id="page-content" class="container-fluid">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="container-fluid">
+                <div class="card px-3">
+                    <div class="card-body">
+                        <h4 class="card-title"> New Appointment </h4>
+
+
+
+                           <form method="POST" action="{{url_for('main.appointment')}}" >
+
+                                {{ form.hidden_tag() }}
+
+                                <div class="add-items d-flex" class="container-fluid">
+
+
+
+                                <!-- csrf_token is required to validate the form -->
+                                {{ form.csrf_token }}
+
+                                    <!--date picker -->
+                                {{form.appointment_customer_name (class_='form-control todo-list-input', placeholder='Whats your name?')}}
+                                 {{ form.appointment_date(class='input-group date', placeholder ='Date MM/DD/YYYY')}}
+                                {{ form.appointment_status_completed }}
+                                {{ form.appointment_location(class='form-control todo-list-input' ,placeholder='Whats your address?') }}
+                                    {{ form.appointment_desc(class='form-control todo-list-input', placeholder='Notes')}}
+
+
+
+
+
+                                <button class="add btn btn-primary font-weight-bold todo-list-add-btn" class="text-center" >Add </button>
+
+
+                           </form>
+                          </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                       <!-- Show current appointments if avaiblae -->
+                        <div class="list-wrapper">
+                            <ul class="d-flex flex-column-reverse new_appointment">
+                             {% for appointment in new_appointment %}
+
+                                {% if 'done' == appointment.appointment_status%}
+                                    <li class="Cleaning">
+                                {% else %}
+                                    <li>
+                                {% endif %}
+                                    <a href="{{url_for('main.edit_appointment',appointment_id=appointment.appointment_id)}}">
+                                         <i class="fas fa-edit"></i>
+                                    </a>
+
+                                    <div class="form-check">
+
+                                      <label class="form-check-label">
+                                          {% if 'Cleaning' == appointment.appointment_status %}
+                                            {{appointment.appointment_desc}} - <span class="">{{appointment.appointment_status}}</span>
+                                          {% elif 'Repair' == appointment.appointment_status %}
+                                            {{appointment.appointment_desc}} - <span class="">{{appointment.appointment_status}}</span>
+                                          {% elif 'Installation' == appointment.appointment_status %}
+                                             {{appointment.appointment_desc}} - <span class="">{{appointment.appointment_status}}</span>
+                                          {% endif %}
+                                            <i class="input-helper"></i>
+                                      </label>
+                                    </div>
+                                    <a href="{{url_for('main.remove_appointment',appointment_id=appointment.appointment_id)}}" class="remove"><i class="fas fa-times"></i></a>
+                              </li>
+                             {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
