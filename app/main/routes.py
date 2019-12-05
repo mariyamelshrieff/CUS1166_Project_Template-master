@@ -88,6 +88,7 @@ def appointmentlist(sortby):
         # Get the data from the form, and add it to the database.
         new_appointment = Appointment(appointment_title=form.appointment_title.data,
                                       appointment_start_date=form.appointment_start_date.data,
+                                      appointment_start_Time=form.appointment_start_Time,
                                       appointment_duration = form.appointment_duration.data,
                                       appointment_location = form.appointment_location.data,
                                       customer_name = form.customer_name.data,
@@ -141,7 +142,7 @@ def appointment(appointment_id):
         db.session.commit()
 
     appointment=Appointment.query.filter(Appointment.appointment_id == appointment_id).one()
-    return render_template("main/appointment.html",appointment = appointment,form= form, appointment_id=appointment_id)
+    return render_template("main/ScheduleAppointment.html", appointment = appointment, form= form, appointment_id=appointment_id)
 
 @bp.route('/appointmentsearch/<int:filterby>', methods=['GET','POST'])
 def search_appointment(filterby):
