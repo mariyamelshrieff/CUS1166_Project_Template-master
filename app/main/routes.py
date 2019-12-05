@@ -59,7 +59,7 @@ def edit_task(task_id):
 
 
         current_task = Task.query.filter_by(task_id=task_id).first_or_404()
-        current_task.task_desc =  form.task_desc.data
+        current_task.task_desc = form.task_desc.data
         current_task.task_status = form.task_status_completed.data
 
         db.session.add(current_task)
@@ -80,11 +80,16 @@ def edit_task(task_id):
 @bp.route('/appointment', methods=['GET','POST'])
 def appointment():
     form = AppointmentForm()
+    print(form.validate_on_submit())
+
     if form.validate_on_submit():
         # Get the data from the form, and add it to the database.
-        new_appointment = Appointment(appointment_customer_name= form.appointment_customer_name, appointment__date= form.appointment_date,
-                                      appointment_status=form.appointment_status_completed, appointment_location= form.appointment_location,
-                                      appointment_desc=form.appointment_desc)
+        new_appointment = Appointment()
+        new_appointment.appointment_customer_name = form.appointment_customer_name
+        new_appointment.appointment__date= form.appointment_date
+        new_appointment. appointment_status=form.appointment_status_completed
+        new_appointment.appointment_location= form.appointment_location
+        new_appointment.appointment_desc=form.appointment_desc
 
         #new_appointment.appointment_customer_name = form.appointment_customer_name.data
         #new_appointment.appointment__date = form.appointment_date.data
@@ -96,7 +101,7 @@ def appointment():
         db.session.add(new_appointment)
         db.session.commit()
 
-        # Redirect to this handler - but without form submitted - gets a clear form.
+
         return redirect(url_for('main.appointment'))
 
     new_appointment = db.session.query(Appointment).all()
@@ -119,7 +124,9 @@ def remove_appointment(appointment_id):
 
 def edit_appointment(appointment_id):
     form = AppointmentForm()
+
     print(form.validate_on_submit())
+
     if form.validate_on_submit():
 
         current_appointment = Appointment.query.filter_by(appointment_id=appointment_id).first_or_404()

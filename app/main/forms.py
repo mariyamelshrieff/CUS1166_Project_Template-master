@@ -15,7 +15,6 @@ class TaskForm(FlaskForm):
 
 class AppointmentForm(FlaskForm):
     appointment_desc = StringField('appointment_desc', validators=[DataRequired()])
-
     appointment_title = StringField('appointment_title', validators=[DataRequired()])
     appointment_customer_name = StringField('appointment_customername', validators=[DataRequired()])
     appointment_location = StringField('appointment_location', validators=[DataRequired()])
