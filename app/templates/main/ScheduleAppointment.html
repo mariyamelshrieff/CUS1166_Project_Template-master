@@ -29,8 +29,7 @@
 <span><b>Notes:</b> '{{appointment.customer_notes}}'</span>
 
 
-    <button type="button" class="btn btn-danger"  class="text-center" href="{{url_for('main.remove_appointment', appointment_id=appointment.appointment_id)}}" >Delete</a> </button>
-
+ <a href="{{url_for('main.remove_appointment', appointment_id=appointment.appointment_id)}}">Delete</a>
 
                 </div>
 
@@ -86,6 +85,8 @@
                     </p>
 
                       <p><input type=submit  value="Modify" class="btn btn-primary btn-lg btn-block"> </p>
+
+
 
                     </form>
                 </div>

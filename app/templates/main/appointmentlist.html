@@ -41,7 +41,12 @@
                         {% elif sortby == 5 %}
                           <span  class="badge badge-success">Notes: {{appointment.customer_notes}}</span>
                         {% endif %}
-                        <a href="{{url_for('main.remove_appointment', appointment_id=appointment.appointment_id)}}">Delete</a>
+
+                        <a href="{{url_for('main.remove_appointment', appointment_id=appointment.appointment_id)}}" >Delete</a>
+
+
+
+
 
                         <br>
                     {% endfor %}
