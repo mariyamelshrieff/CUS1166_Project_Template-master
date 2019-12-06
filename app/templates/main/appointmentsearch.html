@@ -3,14 +3,18 @@
 {% block main_content %}
 <link rel="stylesheet", type="text/css", href="{{url_for('static', filename='css/dropdownButton.css')}}">
 
-<div class="page-content page-container" id="page-content" class="container-fluid">
+<div class="page-content page-container" id="page-content" class="align-content-lg-center" >
 
     <div class="padding">
 
-        <div class="row container d-flex justify-content-center">
+     <div class="row container d-flex justify-content-center">
 
-            <div class="col-lg-12">
+      <div class="col-lg-12">
+
+           <div class="card px-5">
+
                 <div class="dropdown">
+
                   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter By</button> <br>
 
                   <div class="dropdown-content">
@@ -32,7 +36,9 @@
                   <p>
                   {{form.search(size=40, placeholder="(Search for Name or Title)")}}
 
-                  <input type="submit", value="Search">
+                    <input type="submit" value="Search" class="btn btn-primary">
+
+
 
                   </p>
                 </form>
