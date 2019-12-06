@@ -57,7 +57,7 @@
                     </p>
                     <p>
                         {{form.appointment_start_date.label}}<br>
-                        {{form.appointment_start_date(size=150, placeholder="Date & Time eg. '2019-12-04 15:00:00' ")}}<br>
+                        {{form.appointment_start_date(size=150, placeholder=" eg. '2019-12-04 15:00:00' ")}}<br>
                         {% for error in form.appointment_start_date.errors %}
                         <span style="color: red;">[{{ error }} Or wrong data type.]</span>
                         {% endfor %}
@@ -91,7 +91,7 @@
                         {% endfor %}
                     </p>
 
-                    <p>{{form.submit()}}</p>
+                        <p>{{form.submit()}}</p> </form> </div> </div> </div> </div> </div>
                     </form>
                 </div>
 

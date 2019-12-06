@@ -88,11 +88,10 @@ def appointmentlist(sortby):
         # Get the data from the form, and add it to the database.
         new_appointment = Appointment(appointment_title=form.appointment_title.data,
                                       appointment_start_date=form.appointment_start_date.data,
-                                      appointment_start_Time=form.appointment_start_Time,
-                                      appointment_duration = form.appointment_duration.data,
-                                      appointment_location = form.appointment_location.data,
-                                      customer_name = form.customer_name.data,
-                                      customer_notes = form.customer_notes.data)
+                                      appointment_duration=form.appointment_duration.data,
+                                      appointment_location=form.appointment_location.data,
+                                      customer_name=form.customer_name.data,
+                                      customer_notes=form.customer_notes.data)
 
         db.session.add(new_appointment)
         db.session.commit()

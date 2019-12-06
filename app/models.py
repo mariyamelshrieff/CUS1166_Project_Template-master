@@ -14,10 +14,9 @@ class Task(db.Model):
 
 class Appointment(db.Model):
     appointment_id = db.Column(db.Integer, primary_key=True)
-    appointment_title = db.Column(db.String,index=True)
-    appointment_start_date = db.Column(db.Date,index=True)
-    appointment_start_Time= db.Column(db.Time,index=True)
-    appointment_duration = db.Column(db.String,index=True)
-    appointment_location = db.Column(db.String,index=True)
-    customer_name = db.Column(db.String,index=True)
-    customer_notes = db.Column(db.String,index=True)
+    appointment_title = db.Column(db.String)
+    appointment_start_date = db.Column(db.DateTime)
+    appointment_duration = db.Column(db.String)
+    appointment_location = db.Column(db.String)
+    customer_name = db.Column(db.String)
+    customer_notes = db.Column(db.String)
