@@ -1,9 +1,6 @@
-#from flask import url_for
+
 from app import db
 from datetime import datetime
-
-
-
 
 class Task(db.Model):
 
